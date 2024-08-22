@@ -25,8 +25,16 @@ public class PersonServiceImpl implements IPersonService
 		}
 		else
 		{
-			personPage = personRepository.findAllByNameContainsOrAddressContains(search,search,pageable);
+			personPage = personRepository.findAllByNameContainsOrAddressContains(search,pageable);
 		}
 		return personPage;
+	}
+	
+	@Override
+	public void changeStatus(Long personId)
+	{
+		// C1: findById -> thay đổi trạng thái -> save lại
+		// C2: viết query gọi 1 lần thôi
+		personRepository.updateStatus(personId);
 	}
 }

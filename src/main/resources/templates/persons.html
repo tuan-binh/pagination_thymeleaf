@@ -20,6 +20,7 @@
         <th>AGE</th>
         <th>ADDRESS</th>
         <th>STATUS</th>
+        <th>ACTIONS</th>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +30,14 @@
         <td th:text="${item.age}"></td>
         <td th:text="${item.address}"></td>
         <td th:text="${item.status ? 'Visible': 'Hidden'}"></td>
+        <td>
+            <th:block th:if="${item.status}">
+                <a th:href="@{'/'+${item.id} + '/status'}">KHÓA</a>
+            </th:block>
+            <th:block th:unless="${item.status}">
+                <a th:href="@{'/'+${item.id} + '/status'}">MỞ KHÓA</a>
+            </th:block>
+        </td>
     </tr>
     </tbody>
 </table>

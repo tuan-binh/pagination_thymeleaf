@@ -9,4 +9,6 @@ public interface IPersonService
 	
 	Page<Person> findAll(Pageable pageable,String search);
 	
+	void changeStatus(Long personId);
+	
 }
