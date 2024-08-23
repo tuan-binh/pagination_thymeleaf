@@ -23,6 +23,5 @@ public interface IPersonRepository extends JpaRepository<Person, Long>
 	@Query("update Person p set p.status = (not p.status) where p.id = :personId")
 	@Modifying // thêm sửa xóa tự custom viết query thì sẽ phải dùng
 	void updateStatus(@Param("personId") Long personId);
-	
-	
+
 }
